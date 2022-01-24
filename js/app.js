@@ -1,22 +1,25 @@
-const link = document.querySelectorAll(".header-menu__item a");
-seamless.polyfill();
+ const scrolling = () => {
+     const link = document.querySelectorAll(".header-menu__item a");
 
-link.forEach((element) => {
-    element.addEventListener("click", (event) => {
-        event.preventDefault();
+     link.forEach((element) => {
+         element.addEventListener("click", (event) => {
+             event.preventDefault();
 
-        const id = element.getAttribute("href").substring(1);
-        const section = document.getElementById(id);
+             const id = element.getAttribute("href").substring(1);
+             const section = document.getElementById(id);
 
-        if (section) {
-            seamless.elementScrollIntoView(section, {
-                behavior: "smooth",
-                block: "start"
-            })
-        } else {
-            alert("Отсутствует Section")
-        }
+             if (section) {
+                 seamless.elementScrollIntoView(section, {
+                     behavior: "smooth",
+                     block: "start"
+                 })
+             } else {
+                 alert("Отсутствует Section");
+             }
 
 
-    })
-})
+         })
+     })
+ }
+
+ scrolling();
